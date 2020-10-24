@@ -1,4 +1,4 @@
-
+import random
 # TODO: Follow the assignment instructions to complete the required routes!
 # (And make sure to delete this TODO message when you're done!)
 
@@ -40,6 +40,45 @@ def madlibs(adjective, noun):
 def multiply_2_nums(num1,num2):
     """Displays teh product of 2 numbers"""
     return f'{num1} times {num2} is {int(num1) * int(num2) }'
+
+# Stretch challenges
+@app.route('/sayntimes/<word>/<n>')
+def sayntimes(word,n):
+    str = ''
+    for x in range(int(n)):
+        str += word + " "
+    """Displays word chosed printed x times"""
+    return f'{str}'
+
+@app.route('/reverse/<word>')
+def reverse_a_string(word):
+    str=''
+    for letter in word:
+        str = letter + str 
+    """displays word choses printed backwards"""
+    return f'{str}'
+
+@app.route('/strangecaps/<word>')
+def strange_caps(word):
+    str = ''
+    cap = False
+    for letter in word:
+        if cap:
+            str += letter.upper()
+            cap = False
+        else:
+            str += letter.lower()
+            cap = True
+    return(f"{str}")
+
+@app.route('/dicegame')
+def dice_game():
+    diceroll = random.randint(1,6)
+    if diceroll < 6:
+        return  f'You rolled a {diceroll}, you lose!'
+    else:
+        return f'You rolled a {diceroll}, you win!'
+
 
 
 if __name__ == '__main__':
