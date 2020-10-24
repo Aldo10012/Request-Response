@@ -12,14 +12,20 @@ def homepage():
     return 'Are you there, world? It\'s me, Ducky!'
 
 @app.route('/penguins')
-def homepage_penguins():
-    """Shows my favorit animal."""
+def penguins():
+    """Shows animal."""
     return 'Penguins are cute!'
 
 @app.route('/dogs')
-def homepage_dogs():
+def dogs():
     """Shows my favorit animal."""
     return 'Dogs are the coolest! They are cute, playful, and loyal friends. '
+
+@app.route('/animal/<users_animal>')
+def favorite_animal(users_animal):
+    """Display a message to the user that changes based on their favorite animal."""
+    return f'Wow, {users_animal} is my favorite animal, too!'
+
 
 
 
