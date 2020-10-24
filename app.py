@@ -1,6 +1,5 @@
 import random
-# TODO: Follow the assignment instructions to complete the required routes!
-# (And make sure to delete this TODO message when you're done!)
+
 
 from flask import Flask
 
@@ -69,6 +68,7 @@ def strange_caps(word):
         else:
             str += letter.lower()
             cap = True
+    """displays word in alternating case"""
     return(f"{str}")
 
 @app.route('/dicegame')
